@@ -139,14 +139,14 @@ contract CowMilk is ERC20, Ownable, ReentrancyGuard {
     }
 
     function airdropCowMilk(address account, uint amount) external onlyOwner {
-        _mintCowMilk(account, amount);
+        _mintCowMilk(account, amount*10**18);
     }
 
     function airdropManyCowMilk(address[] memory accounts, uint[] memory amounts) external onlyOwner {
         require(accounts.length == amounts.length, "Mismatching array lengths!");
 
         for (uint i = 0; i < accounts.length; i++) {
-            _mintCowMilk(accounts[i], amounts[i]);
+            _mintCowMilk(accounts[i], amounts[i]*10**18);
         }
         
     }
